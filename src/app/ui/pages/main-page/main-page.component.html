@@ -1,0 +1,45 @@
+<div class="main-page d-flex min-vh-100 text-center text-bg-dark">
+  <div class="cover-container d-flex w-100 min-vh-100 p-3 mx-auto flex-column">
+    <header>
+      <div>
+        <h3 class="float-md-start mb-0">Mototax</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Inicio</a>
+          <a class="nav-link fw-bold py-1 px-0" href="#">Cuenta</a>
+          <a class="nav-link fw-bold py-1 px-0 text-danger" href="#" (click)="logout()">Cerrar sesión</a>
+        </nav>
+      </div>
+    </header>
+
+    <main *ngIf="isNewAccount; else pilot_status" class="flex-fill">
+      <section *ngIf="!showDocsStepper" class="position-relative top-50 translate-middle-y">
+        <h1>¡ Bienvenido a Mototax !</h1>
+        <p class="lead text-secondary-emphasis">
+          Hola <strong class="fw-medium text-light">{{ pilotName }}</strong>, para que tus pasajeros puedan encontrarte
+          en
+          nuestra plataforma, deberás de subir la
+          documentación de tu licencia y de tu vehículo. Todos los documentos deben estar
+          <strong class="fw-medium text-light">vigentes</strong>, de lo
+          contrario aún apareceras como
+          <span class="badge bg-danger-subtle border border-danger-subtle text-danger-emphasis rounded-pill">
+            Inactivo
+          </span>
+        </p>
+        <button class="btn btn-lg btn-warning fw-bold text-shadow-none mt-2" (click)="toggleShowDocsStepper()">
+          Subir documentos
+        </button>
+      </section>
+
+      <mototax-docs-stepper *ngIf="showDocsStepper" (hideStepper)="toggleShowDocsStepper()" />
+    </main>
+
+    <ng-template #pilot_status>
+      <mototax-pilot-status class="d-flex flex-fill justify-content-center align-items-center" [pilotName]="pilotName"
+        [available]="pilotData.available" />
+    </ng-template>
+
+    <footer class="text-white-50 mt-5">
+      <p>&copy; Mototax - 2023</p>
+    </footer>
+  </div>
+</div>

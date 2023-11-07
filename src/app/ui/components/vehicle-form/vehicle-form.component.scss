@@ -1,0 +1,12 @@
+input#licensePlate::placeholder {
+  text-transform: none;
+}
+.img-thumbnail {
+  width: fit-content;
+
+  img {
+    width: 100%;
+    max-width: 426px;
+    max-height: 240px;
+  }
+}

@@ -1,0 +1,21 @@
+<div class="steps">
+  <progress id="progress" [value]="progressvalue" max="100"></progress>
+  <div class="step-item">
+    <button class="step-button text-center fw-bold active" type="button" data-bs-toggle="collapse"
+      data-bs-target="#collapseOne" aria-controls="collapseOne">
+      1
+    </button>
+  </div>
+  <div class="step-item">
+    <button class="step-button text-center collapsed fw-bold" [ngClass]="{'active': currentStep > 1}" type="button"
+      data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-controls="collapseTwo">
+      2
+    </button>
+  </div>
+  <div class="step-item">
+    <button class="step-button text-center collapsed fw-bold" [ngClass]="{'active': currentStep > 2}" type="button"
+      data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-controls="collapseThree">
+      3
+    </button>
+  </div>
+</div>

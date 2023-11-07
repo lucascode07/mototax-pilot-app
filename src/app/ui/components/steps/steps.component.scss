@@ -1,0 +1,44 @@
+.steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.step-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--bs-gray);
+  transition: 0.4s;
+}
+.step-button.active {
+  background-color: var(--bs-warning);
+  color: var(--bs-dark);
+}
+.done {
+  background-color: var(--bs-warning);
+  color: #fff;
+}
+.step-item {
+  z-index: 10;
+  text-align: center;
+}
+#progress {
+  appearance: none;
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  translate: -50%;
+  width: 99.3%;
+  z-index: 5;
+  height: 10px;
+}
+#progress::-webkit-progress-value {
+  background-color: var(--bs-warning);
+  transition: 0.5s ease;
+}
+#progress::-webkit-progress-bar {
+  background-color: var(--bs-gray);
+}

@@ -1,0 +1,123 @@
+<main class="container">
+
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="assets/images/logo.webp" alt="Mototax logo" width="72" height="72">
+    <h2>Formulario de registro</h2>
+    <p class="lead">
+      Te damos la bienvenida a Mototax. Somos una plataforma para mototaxistas con todos los papeles en regla.
+      Simplificamos el
+      proceso para garantizar un viaje seguro y confiable.
+    </p>
+  </div>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off" class="row g-5">
+    <div class="col-md-5 col-lg-4 order-md-last">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-warning">Foto de perfil</span>
+      </h4>
+      <div class="img-thumbnail mb-3">
+        <img [src]="photoPreview" alt="previsualizar la foto de perfil" class="img-fluid rounded">
+      </div>
+      <div class="card p-2">
+        <input type="file" accept="image/*" id="profile-photo" class="form-control" (change)="onFileChange($event, 'profilePhoto')" />
+      </div>
+      <small *ngIf="isValidField('profilePhoto')" class="text-danger-emphasis">
+        {{ getFieldError("profilePhoto") }}
+      </small>
+    </div>
+    <div class="col-md-7 col-lg-8">
+      <h4 class="text-warning mb-3">Datos personales</h4>
+      <div class="row g-3">
+        <div class="col-sm-6">
+          <label for="name" class="form-label">Nombres </label>
+          <input formControlName="name" type="text" class="form-control" id="name"
+            [ngClass]="{ 'is-invalid': isValidField('name') }">
+          <small *ngIf="isValidField('name')" class="invalid-feedback">
+            {{ getFieldError("name") }}
+          </small>
+        </div>
+
+        <div class="col-sm-6">
+          <label for="lastname" class="form-label">Apellido</label>
+          <input formControlName="lastname" type="text" id="lastname" class="form-control"
+            [ngClass]="{ 'is-invalid': isValidField('lastname') }" />
+          <small *ngIf="isValidField('lastname')" class="invalid-feedback">
+            {{ getFieldError("lastname") }}
+          </small>
+        </div>
+
+        <div class="col-12">
+          <label for="birthday" class="form-label">Fecha de nacimiento</label>
+          <input formControlName="birthday" type="date" id="birthday" class="form-control" [max]="getLimitDateAllowed()"
+            [ngClass]="{ 'is-invalid': isValidField('birthday') }" />
+          <small *ngIf="isValidField('birthday')" class="invalid-feedback">
+            {{ getFieldError("birthday") }}
+          </small>
+        </div>
+
+        <div class="col-12">
+          <label for="email" class="form-label">Correo</label>
+          <input formControlName="email" type="text" id="email" class="form-control"
+            [ngClass]="{ 'is-invalid': isValidField('email') }" placeholder="Ej: correo@correo.com" />
+          <small *ngIf="isValidField('email')" class="invalid-feedback">
+            {{ getFieldError("email", 'correo') }}
+          </small>
+        </div>
+
+        <div class="col-12">
+          <label for="cellphone" class="form-label">Celular</label>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="cellphone">+51</span>
+            <input formControlName="cellphone" type="text" id="cellphone" maxlength="9" class="form-control"
+              [ngClass]="{ 'is-invalid': isValidField('cellphone') }" />
+            <small *ngIf="isValidField('cellphone')" class="invalid-feedback">
+              {{ getFieldError("cellphone", 'celular') }}
+            </small>
+          </div>
+        </div>
+
+        <hr class="my-4">
+
+        <h4 class="text-warning mt-0">Contraseña</h4>
+
+        <div class="col-sm-6">
+          <label for="password" class="form-label">Contraseña</label>
+          <input formControlName="password" type="password" id="password" class="form-control"
+            [ngClass]="{ 'is-invalid': isValidField('password') }" />
+          <small *ngIf="isValidField('password')" class="invalid-feedback">
+            {{ getFieldError("password") }}
+          </small>
+        </div>
+
+        <div class="col-sm-6">
+          <label for="passwordConfirm" class="form-label">Confirmar contraseña</label>
+          <input formControlName="passwordConfirm" type="password" id="passwordConfirm" class="form-control"
+            [ngClass]="{ 'is-invalid': isValidField('passwordConfirm') }" />
+          <small *ngIf="isValidField('passwordConfirm')" class="invalid-feedback">
+            {{ getFieldError("passwordConfirm") }}
+          </small>
+        </div>
+
+      </div>
+
+      <div class="alert alert-success d-flex align-items-center mt-2 mb-0" role="alert" *ngIf="showAlert">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        <p class="mb-0">Registro exitoso. Redirigiendo a página de inicio</p>
+      </div>
+
+      <button class="w-100 btn btn-warning btn-lg mt-4" type="submit">
+        <span *ngIf="!showLoaderSpinner">Registrarme</span>
+        <div class="spinner-border spinner-border-sm" role="status" *ngIf="showLoaderSpinner">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </button>
+
+      <a routerLink="/login" class="d-block mt-4 text-center">¿Ya tienes una cuenta? Ingresa aquí</a>
+    </div>
+  </form>
+
+
+  <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+    <p class="mb-1">&copy; 2023 Mototax</p>
+  </footer>
+</main>

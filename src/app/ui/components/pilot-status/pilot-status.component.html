@@ -1,0 +1,22 @@
+<main class="px-3 text-secondary-emphasis">
+  <h1>Bienvenido <strong class="text-light">{{ pilotName }}</strong>, </h1>
+  <p class="fs-5">
+    Tú estado actual en Mototax es:
+    <span [class]="statusClassName">
+      {{ available ? 'Activo' : ' Inactivo' }}
+    </span>
+  </p>
+
+  <ng-container *ngIf="!available">
+    <p>
+      Si apareces inactivo, puede deberse a las siguientes razones:
+    </p>
+    <ul class="text-start">
+      <li>Aún nos encontramos revisando tu documentación, vuelve en unos minutos.</li>
+      <li>La documentación que registraste ya no esté vigente y necesites actualizarla. (Ej: SOAT vencido, o licencia
+        vencida)
+      </li>
+    </ul>
+    <p>Si necesitas más información, ponte en contacto con nosotros.</p>
+  </ng-container>
+</main>

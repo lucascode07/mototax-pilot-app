@@ -1,0 +1,44 @@
+<main class="d-flex align-items-center py-4 bg-body-tertiary vh-100">
+  <div class="form-signin w-100 m-auto">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" autocomplete="off">
+      <img class="mb-4" src="assets/images/logo.webp" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 fw-normal">Iniciar sesión</h1>
+
+      <div class="alert alert-danger d-flex align-items-center py-2 alert-dismissible" role="alert"
+        *ngIf="showErrorAlert">
+        <i class="bi bi-x-octagon-fill me-2"></i>
+        <p class="mb-0">Credenciales incorrectas</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"
+          (click)="closeAlert()"></button>
+      </div>
+
+      <div class="form-floating">
+        <input type="text" class="form-control" id="identifier" placeholder="name@example.com"
+          formControlName="identifier" [ngClass]="{ 'is-invalid': isValidField('identifier') }" maxlength="9">
+        <label for="identifier">Ingresa tu número</label>
+      </div>
+
+      <div class="form-floating">
+        <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"
+          [ngClass]="{ 'is-invalid': isValidField('password') }" #password>
+        <label for="password">Ingresa tu contraseña</label>
+      </div>
+
+      <div class="form-check text-start my-3">
+        <input class="form-check-input" type="checkbox" id="show-password" (change)="showHidePassword($event)">
+        <label class="form-check-label" for="show-password">
+          Ver contraseña
+        </label>
+      </div>
+      <button class="btn btn-warning w-100 py-2" type="submit">
+        <span *ngIf="!showLoaderSpinner">Ingresar</span>
+        <div class="spinner-border spinner-border-sm" role="status" *ngIf="showLoaderSpinner">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </button>
+      <p class="mt-5 mb-3 text-body-secondary">&copy; Mototax - 2023</p>
+
+      <a routerLink="/registro" class="d-block mt-4 text-center">¿No tienes cuenta? Regístrate aquí</a>
+    </form>
+  </div>
+</main>
