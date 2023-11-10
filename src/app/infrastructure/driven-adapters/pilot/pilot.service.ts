@@ -17,7 +17,7 @@ export class PilotService implements PilotGateway {
   public login(identifier: string, password: string): Observable<Pilot | null> {
     return this._http
       .get<LoginResponse>(
-        `${environment.MOTOTAX_API_URL}/api/pilots?filters[password]=${password}&filters[cellphone]=${identifier}&populate=*`
+        `${environment.MOTOTAX_API_URL}/api/pilots?filters[password]=${password}&filters[celular]=${identifier}&populate=*`
       )
       .pipe(
         delay(1000),
@@ -30,9 +30,9 @@ export class PilotService implements PilotGateway {
     const formData = new FormData();
     formData.append('data', JSON.stringify(pilot));
     formData.append(
-      'files.profilePhoto',
-      pilot.profilePhoto as File,
-      (pilot.profilePhoto as File).name
+      'files.fotoPerfil',
+      pilot.fotoPerfil as File,
+      (pilot.fotoPerfil as File).name
     );
 
     return this._http

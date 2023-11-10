@@ -14,13 +14,13 @@ export class MainPageComponent {
   constructor(private _router: Router) {}
 
   get pilotName(): string {
-    return this.pilotData.name;
+    return this.pilotData.nombres;
   }
 
   get isNewAccount(): boolean {
     if (
-      this.pilotData.driverLicense.data &&
-      this.pilotData.vehicles.data.length > 0
+      this.pilotData.licencia.data &&
+      this.pilotData.vehiculos.data.length > 0
     ) {
       return false;
     } else {

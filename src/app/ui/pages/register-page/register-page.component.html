@@ -10,8 +10,8 @@
     </p>
   </div>
 
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off" class="row g-5">
-    <div class="col-md-5 col-lg-4 order-md-last">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" autocomplete="off" class="row">
+    <div class="col-md-5 col-lg-4 order-md-last mb-3">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-warning">Foto de perfil</span>
       </h4>
@@ -19,59 +19,59 @@
         <img [src]="photoPreview" alt="previsualizar la foto de perfil" class="img-fluid rounded">
       </div>
       <div class="card p-2">
-        <input type="file" accept="image/*" id="profile-photo" class="form-control" (change)="onFileChange($event, 'profilePhoto')" />
+        <input type="file" accept="image/*" id="profile-photo" class="form-control" (change)="onFileChange($event, 'fotoPerfil')" />
       </div>
-      <small *ngIf="isValidField('profilePhoto')" class="text-danger-emphasis">
-        {{ getFieldError("profilePhoto") }}
+      <small *ngIf="isValidField('fotoPerfil')" class="text-danger-emphasis">
+        {{ getFieldError("fotoPerfil") }}
       </small>
     </div>
     <div class="col-md-7 col-lg-8">
       <h4 class="text-warning mb-3">Datos personales</h4>
       <div class="row g-3">
         <div class="col-sm-6">
-          <label for="name" class="form-label">Nombres </label>
-          <input formControlName="name" type="text" class="form-control" id="name"
-            [ngClass]="{ 'is-invalid': isValidField('name') }">
-          <small *ngIf="isValidField('name')" class="invalid-feedback">
-            {{ getFieldError("name") }}
+          <label for="nombres" class="form-label">Nombres</label>
+          <input formControlName="nombres" type="text" class="form-control" id="nombres"
+            [ngClass]="{ 'is-invalid': isValidField('nombres') }">
+          <small *ngIf="isValidField('nombres')" class="invalid-feedback">
+            {{ getFieldError("nombres") }}
           </small>
         </div>
 
         <div class="col-sm-6">
-          <label for="lastname" class="form-label">Apellido</label>
-          <input formControlName="lastname" type="text" id="lastname" class="form-control"
-            [ngClass]="{ 'is-invalid': isValidField('lastname') }" />
-          <small *ngIf="isValidField('lastname')" class="invalid-feedback">
-            {{ getFieldError("lastname") }}
+          <label for="apellidos" class="form-label">Apellidos</label>
+          <input formControlName="apellidos" type="text" id="apellidos" class="form-control"
+            [ngClass]="{ 'is-invalid': isValidField('apellidos') }" />
+          <small *ngIf="isValidField('apellidos')" class="invalid-feedback">
+            {{ getFieldError("apellidos") }}
           </small>
         </div>
 
         <div class="col-12">
-          <label for="birthday" class="form-label">Fecha de nacimiento</label>
-          <input formControlName="birthday" type="date" id="birthday" class="form-control" [max]="getLimitDateAllowed()"
-            [ngClass]="{ 'is-invalid': isValidField('birthday') }" />
-          <small *ngIf="isValidField('birthday')" class="invalid-feedback">
-            {{ getFieldError("birthday") }}
+          <label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
+          <input formControlName="fechaNacimiento" type="date" id="fechaNacimiento" class="form-control" [max]="getLimitDateAllowed()"
+            [ngClass]="{ 'is-invalid': isValidField('fechaNacimiento') }" />
+          <small *ngIf="isValidField('fechaNacimiento')" class="invalid-feedback">
+            {{ getFieldError("fechaNacimiento") }}
           </small>
         </div>
 
         <div class="col-12">
-          <label for="email" class="form-label">Correo</label>
-          <input formControlName="email" type="text" id="email" class="form-control"
-            [ngClass]="{ 'is-invalid': isValidField('email') }" placeholder="Ej: correo@correo.com" />
-          <small *ngIf="isValidField('email')" class="invalid-feedback">
-            {{ getFieldError("email", 'correo') }}
+          <label for="correo" class="form-label">Correo</label>
+          <input formControlName="correo" type="text" id="correo" class="form-control"
+            [ngClass]="{ 'is-invalid': isValidField('correo') }" placeholder="Ej: correo@correo.com" />
+          <small *ngIf="isValidField('correo')" class="invalid-feedback">
+            {{ getFieldError("correo", 'correo') }}
           </small>
         </div>
 
         <div class="col-12">
-          <label for="cellphone" class="form-label">Celular</label>
+          <label for="celular" class="form-label">Celular</label>
           <div class="input-group mb-3">
-            <span class="input-group-text" id="cellphone">+51</span>
-            <input formControlName="cellphone" type="text" id="cellphone" maxlength="9" class="form-control"
-              [ngClass]="{ 'is-invalid': isValidField('cellphone') }" />
-            <small *ngIf="isValidField('cellphone')" class="invalid-feedback">
-              {{ getFieldError("cellphone", 'celular') }}
+            <span class="input-group-text" id="celular">+51</span>
+            <input formControlName="celular" type="text" id="celular" maxlength="9" class="form-control"
+              [ngClass]="{ 'is-invalid': isValidField('celular') }" />
+            <small *ngIf="isValidField('celular')" class="invalid-feedback">
+              {{ getFieldError("celular", 'celular') }}
             </small>
           </div>
         </div>

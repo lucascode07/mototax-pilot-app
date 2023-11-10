@@ -5,7 +5,6 @@
         <h3 class="float-md-start mb-0">Mototax</h3>
         <nav class="nav nav-masthead justify-content-center float-md-end">
           <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Inicio</a>
-          <a class="nav-link fw-bold py-1 px-0" href="#">Cuenta</a>
           <a class="nav-link fw-bold py-1 px-0 text-danger" href="#" (click)="logout()">Cerrar sesión</a>
         </nav>
       </div>
@@ -35,7 +34,7 @@
 
     <ng-template #pilot_status>
       <mototax-pilot-status class="d-flex flex-fill justify-content-center align-items-center" [pilotName]="pilotName"
-        [available]="pilotData.available" />
+        [available]="pilotData.habilitado" />
     </ng-template>
 
     <footer class="text-white-50 mt-5">

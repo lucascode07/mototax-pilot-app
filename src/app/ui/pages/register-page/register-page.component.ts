@@ -17,11 +17,11 @@ import { Router } from '@angular/router';
 export class RegisterPageComponent implements OnDestroy {
   public registerForm: FormGroup = this._fb.group(
     {
-      name: ['', [Validators.required]],
-      lastname: ['', [Validators.required]],
-      birthday: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.pattern(EMAIL_REGEXP)]],
-      cellphone: [
+      nombres: ['', [Validators.required]],
+      apellidos: ['', [Validators.required]],
+      fechaNacimiento: ['', [Validators.required]],
+      correo: ['', [Validators.required, Validators.pattern(EMAIL_REGEXP)]],
+      celular: [
         '',
         [
           Validators.required,
@@ -29,8 +29,7 @@ export class RegisterPageComponent implements OnDestroy {
           Validators.minLength(9),
         ],
       ],
-      profilePhoto: [null, Validators.required],
-      policeRecord: [null, Validators.required],
+      fotoPerfil: [null, Validators.required],
       password: ['', [Validators.required]],
       passwordConfirm: ['', [Validators.required]],
     },
@@ -67,7 +66,7 @@ export class RegisterPageComponent implements OnDestroy {
       this.showAlert = true;
 
       this._pilotUseCase
-        .login(pilot.cellphone, pilot.password)
+        .login(pilot.celular, pilot.password)
         .subscribe((res) => {
           localStorage.setItem('user-pilot', JSON.stringify(res));
           this.redirectTimeout = window.setTimeout(() => {

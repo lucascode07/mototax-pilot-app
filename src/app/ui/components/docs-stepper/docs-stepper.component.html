@@ -2,14 +2,9 @@
 
   <mototax-steps [currentStep]="currentStep" />
 
-  <ng-container [ngSwitch]="currentStep">
-    <mototax-driver-license-form *ngSwitchCase="1" [driverLicenseForm]="driverLicenseForm"
-      [frontPhotoPreview]="frontPhotoPreview" [backPhotoPreview]="backPhotoPreview"></mototax-driver-license-form>
-    <mototax-vehicle-form *ngSwitchCase="2" [vehicleForm]="vehicleForm" [photoPreview]="photoPreview"
-      [circulationCardFrontPreview]="circulationCardFrontPreview"
-      [circulationCardBackPreview]="circulationCardBackPreview" [soatPreview]="soatPreview"></mototax-vehicle-form>
-    <mototax-response-step *ngSwitchCase="3" [isSuccessResponse]="isSuccessResponse"></mototax-response-step>
-  </ng-container>
+  <mototax-driver-license-form [ngClass]="{'d-none': currentStep > 1}" [driverLicenseForm]="driverLicenseForm"></mototax-driver-license-form>
+  <mototax-vehicle-form [ngClass]="{'d-none': currentStep < 2 || currentStep > 2}" [vehicleForm]="vehicleForm"></mototax-vehicle-form>
+  <mototax-response-step [ngClass]="{'d-none': currentStep < 3}" [isSuccessResponse]="isSuccessResponse"></mototax-response-step>
 
   <button class="btn btn-outline-light mt-4 me-3 fw-bold" (click)="backStep()" *ngIf="currentStep < 3">
     Volver

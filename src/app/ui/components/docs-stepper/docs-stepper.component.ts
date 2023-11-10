@@ -13,37 +13,28 @@ export class DocsStepperComponent {
   public isSuccessResponse: boolean = false;
 
   public driverLicenseForm: FormGroup = this._fb.group({
-    licenseNumber: ['', [Validators.required]],
-    expirationDate: ['', [Validators.required]],
-    frontPhoto: [null, [Validators.required]],
-    backPhoto: [null, [Validators.required]],
+    numeroLicencia: ['', [Validators.required]],
+    fechaVencimiento: ['', [Validators.required]],
+    fotoFrontal: [null, [Validators.required]],
+    fotoPosterior: [null, [Validators.required]],
+    antecedentePolicial: [null, [Validators.required]],
   });
 
   public vehicleForm: FormGroup = this._fb.group({
-    licensePlate: ['', [Validators.required]],
-    year: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
-    photo: [null, [Validators.required]],
-    circulationCardFront: [null, [Validators.required]],
-    circulationCardBack: [null, [Validators.required]],
+    placa: ['', [Validators.required]],
+    anioFabricacion: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
+    foto: [null, [Validators.required]],
+    tarjetaCirculacionFrontal: [null, [Validators.required]],
+    tarjetaCirculacionTrasera: [null, [Validators.required]],
     soat: [null, [Validators.required]],
   });
-
-  public frontPhotoPreview: string = 'assets/images/image-placeholder.webp';
-  public backPhotoPreview: string = 'assets/images/image-placeholder.webp';
-  public photoPreview: string = 'assets/images/image-placeholder.webp';
-  public circulationCardFrontPreview: string =
-    'assets/images/image-placeholder.webp';
-  public circulationCardBackPreview: string =
-    'assets/images/image-placeholder.webp';
-  public soatPreview: string =
-    'assets/images/image-placeholder.webp';
 
   constructor(private _fb: FormBuilder) {}
 
   public nextStep(): void {
     this.driverLicenseForm.markAllAsTouched();
     if (this.driverLicenseForm.invalid) return;
-
+    window.scrollTo({ top: 0 });
     this.currentStep += 1;
   }
 

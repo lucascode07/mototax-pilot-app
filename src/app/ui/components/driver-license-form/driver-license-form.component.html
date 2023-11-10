@@ -4,41 +4,53 @@
 
 <form class="row g-3" [formGroup]="driverLicenseForm">
   <div class="col-md-6 text-start">
-    <label for="licenseNumber" class="form-label">Número de licencia</label>
-    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': isValidField('licenseNumber') }"
-      id="licenseNumber" formControlName="licenseNumber">
-    <small *ngIf="isValidField('licenseNumber')" class="invalid-feedback">
-      {{ getFieldError("licenseNumber") }}
+    <label for="numeroLicencia" class="form-label">Número de licencia</label>
+    <input type="text" class="form-control" [ngClass]="{ 'is-invalid': isValidField('numeroLicencia') }"
+      id="numeroLicencia" formControlName="numeroLicencia">
+    <small *ngIf="isValidField('numeroLicencia')" class="invalid-feedback">
+      {{ getFieldError("numeroLicencia") }}
     </small>
   </div>
   <div class="col-md-6 text-start">
-    <label for="expirationDate" class="form-label">Fecha de vencimiento</label>
-    <input type="date" class="form-control" id="expirationDate" [min]="getLimitDateAllowed()"
-      formControlName="expirationDate" [ngClass]="{ 'is-invalid': isValidField('licenseNumber') }">
-    <small *ngIf="isValidField('expirationDate')" class="invalid-feedback">
-      {{ getFieldError("expirationDate") }}
+    <label for="fechaVencimiento" class="form-label">Fecha de vencimiento</label>
+    <input type="date" class="form-control" id="fechaVencimiento" [min]="getLimitDateAllowed()"
+      formControlName="fechaVencimiento" [ngClass]="{ 'is-invalid': isValidField('fechaVencimiento') }">
+    <small *ngIf="isValidField('fechaVencimiento')" class="invalid-feedback">
+      {{ getFieldError("fechaVencimiento") }}
     </small>
   </div>
   <div class="col-12 text-start">
-    <label for="frontPhoto" class="form-label">Foto de la licencia frontal</label>
-    <input type="file" accept="image/*" id="frontPhoto" class="form-control"
-      [ngClass]="{ 'is-invalid': isValidField('frontPhoto') }" (change)="onFileChangeFront($event)">
-    <small *ngIf="isValidField('frontPhoto')" class="text-danger-emphasis">
-      {{ getFieldError("frontPhoto") }}
+    <label for="fotoFrontal" class="form-label">Foto de la licencia frontal</label>
+    <input type="file" accept="image/*" id="fotoFrontal" class="form-control"
+      [ngClass]="{ 'is-invalid': isValidField('fotoFrontal') }" (change)="onFileChange($event, 'fotoFrontal')">
+    <small *ngIf="isValidField('fotoFrontal')" class="text-danger-emphasis">
+      {{ getFieldError("fotoFrontal") }}
     </small>
     <div class="img-thumbnail mx-auto mt-3">
       <img [src]="frontPhotoPreview" alt="previsualizar foto de frente" class="img-fluid rounded object-fit-cover">
     </div>
   </div>
   <div class="col-12 text-start">
-    <label for="backPhoto" class="form-label">Foto de la licencia trasera</label>
-    <input type="file" accept="image/*" id="backPhoto" class="form-control"
-      [ngClass]="{ 'is-invalid': isValidField('backPhoto') }" (change)="onFileChangeBack($event)">
-    <small *ngIf="isValidField('backPhoto')" class="text-danger-emphasis">
-      {{ getFieldError("backPhoto") }}
+    <label for="fotoPosterior" class="form-label">Foto de la licencia trasera</label>
+    <input type="file" accept="image/*" id="fotoPosterior" class="form-control"
+      [ngClass]="{ 'is-invalid': isValidField('fotoPosterior') }" (change)="onFileChange($event, 'fotoPosterior')">
+    <small *ngIf="isValidField('fotoPosterior')" class="text-danger-emphasis">
+      {{ getFieldError("fotoPosterior") }}
     </small>
     <div class="img-thumbnail mx-auto mt-3">
       <img [src]="backPhotoPreview" alt="previsualizar foto de atrás" class="img-fluid rounded  object-fit-cover">
+    </div>
+  </div>
+  <div class="col-12 text-start">
+    <label for="antecedentePolicial" class="form-label">Antecedentes policiales</label>
+    <input type="file" accept="image/*" id="antecedentePolicial" class="form-control"
+      [ngClass]="{ 'is-invalid': isValidField('antecedentePolicial') }"
+      (change)="onFileChange($event, 'antecedentePolicial')">
+    <small *ngIf="isValidField('antecedentePolicial')" class="text-danger-emphasis">
+      {{ getFieldError("antecedentePolicial") }}
+    </small>
+    <div class="img-thumbnail mx-auto mt-3">
+      <img [src]="policeRecordPreview" alt="previsualizar foto de atrás" class="img-fluid rounded  object-fit-cover">
     </div>
   </div>
 </form>

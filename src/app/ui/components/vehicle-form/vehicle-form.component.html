@@ -4,66 +4,63 @@
 
 <form [formGroup]="vehicleForm" class="row g-3">
   <div class="col-6 text-start">
-    <label for="licensePlate" class="form-label">Placa</label>
-    <input type="text" class="form-control text-uppercase" [ngClass]="{ 'is-invalid': isValidField('licensePlate') }"
-      id="licensePlate" placeholder="Ej: ABC-123" formControlName="licensePlate">
-    <small *ngIf="isValidField('licensePlate')" class="invalid-feedback">
-      {{ getFieldError("licensePlate") }}
+    <label for="placa" class="form-label">Placa</label>
+    <input type="text" class="form-control text-uppercase" [ngClass]="{ 'is-invalid': isValidField('placa') }"
+      id="placa" placeholder="Ej: ABC-123" formControlName="placa">
+    <small *ngIf="isValidField('placa')" class="invalid-feedback">
+      {{ getFieldError("placa") }}
     </small>
   </div>
   <div class="col-6 text-start">
-    <label for="year" class="form-label">Año de fabricación</label>
-    <input type="text" maxlength="4" class="form-control" [ngClass]="{ 'is-invalid': isValidField('year') }" id="year"
-      placeholder="Ej: 2010" formControlName="year">
-    <small *ngIf="isValidField('year')" class="invalid-feedback">
-      {{ getFieldError("year", "año") }}
+    <label for="anioFabricacion" class="form-label">Año de fabricación</label>
+    <input type="text" maxlength="4" class="form-control" [ngClass]="{ 'is-invalid': isValidField('anioFabricacion') }"
+      id="anioFabricacion" placeholder="Ej: 2010" formControlName="anioFabricacion">
+    <small *ngIf="isValidField('anioFabricacion')" class="invalid-feedback">
+      {{ getFieldError("anioFabricacion", "año") }}
     </small>
   </div>
   <div class="col-12 text-start">
-    <label for="photo" class="form-label">Foto del vehículo</label>
-    <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('photo') }" id="photo"
-      (change)="onFileChange($event, 'photo', 'photoPreview')">
+    <label for="foto" class="form-label">Foto del vehículo</label>
+    <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('foto') }" id="foto"
+      (change)="onFileChange($event, 'foto')">
+    <small *ngIf="isValidField('foto')" class="invalid-feedback">
+      {{ getFieldError("foto") }}
+    </small>
     <div class="img-thumbnail mx-auto mt-3">
       <img [src]="photoPreview" alt="previsualizar foto del vehículo" class="img-fluid rounded object-fit-cover">
     </div>
-    <small *ngIf="isValidField('photo')" class="invalid-feedback">
-      {{ getFieldError("photo") }}
-    </small>
   </div>
   <div class="col-12 text-start">
-    <label for="circulationCardFront" class="form-label">Tarjeta de circulación (Foto frontal)</label>
-    <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('circulationCardFront') }"
-      id="circulationCardFront" (change)="onFileChange($event, 'circulationCardFront', 'circulationCardFrontPreview')">
-    <small *ngIf="isValidField('circulationCardFront')" class="invalid-feedback">
-      {{ getFieldError("circulationCardFront") }}
+    <label for="tarjetaCirculacionFrontal" class="form-label">Tarjeta de circulación (Foto frontal)</label>
+    <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('tarjetaCirculacionFrontal') }"
+      id="tarjetaCirculacionFrontal" (change)="onFileChange($event, 'tarjetaCirculacionFrontal')">
+    <small *ngIf="isValidField('tarjetaCirculacionFrontal')" class="invalid-feedback">
+      {{ getFieldError("tarjetaCirculacionFrontal") }}
     </small>
     <div class="img-thumbnail mx-auto mt-3">
-      <img [src]="circulationCardFrontPreview" alt="previsualizar foto de frente"
-        class="img-fluid rounded object-fit-cover">
+      <img [src]="circCardFrontPreview" alt="previsualizar foto de frente" class="img-fluid rounded object-fit-cover">
     </div>
   </div>
   <div class="col-12 text-start">
-    <label for="circulationCardBack" class="form-label">Tarjeta de circulación (Foto trasera)</label>
-    <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('circulationCardBack') }"
-      id="circulationCardBack" (change)="onFileChange($event, 'circulationCardBack', 'circulationCardBackPreview')">
-    <small *ngIf="isValidField('circulationCardBack')" class="invalid-feedback">
-      {{ getFieldError("circulationCardBack") }}
+    <label for="tarjetaCirculacionTrasera" class="form-label">Tarjeta de circulación (Foto trasera)</label>
+    <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('tarjetaCirculacionTrasera') }"
+      id="tarjetaCirculacionTrasera" (change)="onFileChange($event, 'tarjetaCirculacionTrasera')">
+    <small *ngIf="isValidField('tarjetaCirculacionTrasera')" class="invalid-feedback">
+      {{ getFieldError("tarjetaCirculacionTrasera") }}
     </small>
     <div class="img-thumbnail mx-auto mt-3">
-      <img [src]="circulationCardBackPreview" alt="previsualizar foto de frente"
-        class="img-fluid rounded object-fit-cover">
+      <img [src]="circCardBackPreview" alt="previsualizar foto de frente" class="img-fluid rounded object-fit-cover">
     </div>
   </div>
   <div class="col-12 text-start">
     <label for="soat" class="form-label">Foto de SOAT</label>
-    <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('soat') }"
-      id="soat" (change)="onFileChange($event, 'soat', 'soatPreview')">
+    <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('soat') }" id="soat"
+      (change)="onFileChange($event, 'soat')">
     <small *ngIf="isValidField('soat')" class="invalid-feedback">
       {{ getFieldError("soat") }}
     </small>
     <div class="img-thumbnail mx-auto mt-3">
-      <img [src]="soatPreview" alt="previsualizar foto de frente"
-        class="img-fluid rounded object-fit-cover">
+      <img [src]="soatPreview" alt="previsualizar foto de frente" class="img-fluid rounded object-fit-cover">
     </div>
   </div>
 </form>

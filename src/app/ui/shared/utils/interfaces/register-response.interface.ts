@@ -9,15 +9,15 @@ export interface Data {
 }
 
 export interface PilotAttributes {
-  name: string;
-  lastname: string;
-  email: string;
+  nombres: string;
+  apellidos: string;
+  correo: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  cellphone: string;
-  available: boolean;
-  birthday: string;
+  celular: string;
+  habilitado: boolean;
+  fechaNacimiento: string;
   password: string;
 }
 

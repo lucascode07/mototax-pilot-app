@@ -9,29 +9,30 @@ import { FormsValidatorService } from '../../shared/services/forms-validator.ser
 })
 export class DriverLicenseFormComponent {
   @Input() public driverLicenseForm!: FormGroup;
-  @Input() public frontPhotoPreview!: string;
-  @Input() public backPhotoPreview!: string;
+
+  public frontPhotoPreview: string = 'assets/images/image-placeholder.webp';
+  public backPhotoPreview: string = 'assets/images/image-placeholder.webp';
+  public policeRecordPreview: string = 'assets/images/image-placeholder.webp';
 
   constructor(private _formServices: FormsValidatorService) {}
 
-  public onFileChangeFront(event: Event) {
+  public onFileChange(event: Event, field: string) {
     const file = (event.target as HTMLInputElement).files![0];
-    this.driverLicenseForm.patchValue({ frontPhoto: file });
-    this.driverLicenseForm.get('frontPhoto')?.updateValueAndValidity();
+    this.driverLicenseForm.patchValue({ [field]: file });
+    this.driverLicenseForm.get(field)?.updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
-      this.frontPhotoPreview = reader.result as string;
-    };
-    reader.readAsDataURL(file);
-  }
-
-  public onFileChangeBack(event: Event) {
-    const file = (event.target as HTMLInputElement).files![0];
-    this.driverLicenseForm.patchValue({ backPhoto: file });
-    this.driverLicenseForm.get('backPhoto')?.updateValueAndValidity();
-    const reader = new FileReader();
-    reader.onload = () => {
-      this.backPhotoPreview = reader.result as string;
+      switch (field) {
+        case 'fotoFrontal':
+          this.frontPhotoPreview = reader.result as string;
+          break;
+        case 'fotoPosterior':
+          this.backPhotoPreview = reader.result as string;
+          break;
+        case 'antecedentePolicial':
+          this.policeRecordPreview = reader.result as string;
+          break;
+      }
     };
     reader.readAsDataURL(file);
   }

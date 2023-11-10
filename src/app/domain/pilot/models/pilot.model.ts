@@ -1,17 +1,17 @@
 export interface Pilot {
-  name: string;
-  lastname: string;
-  email: string;
+  nombres: string;
+  apellidos: string;
+  correo: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
-  cellphone: string;
-  available: boolean;
-  birthday: string;
+  celular: string;
+  habilitado: boolean;
+  fechaNacimiento: string;
   password: string;
-  profilePhoto: Photo | File;
-  driverLicense: DriverLicense;
-  vehicles: Vehicles;
+  fotoPerfil: Photo | File;
+  licencia: DriverLicense;
+  vehiculos: Vehicles;
 }
 
 export interface DriverLicense {
@@ -24,8 +24,8 @@ export interface DriverLicenseData {
 }
 
 export interface DriverLicenseAttributes {
-  licenseNumber: string;
-  expirationDate: string;
+  numeroLicencia: string;
+  fechaVencimiento: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -88,8 +88,8 @@ export interface VehiclesDatum {
 }
 
 export interface VehiclesAttributes {
-  licensePlate: string;
-  year: string;
+  placa: string;
+  anioFabricacion: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
