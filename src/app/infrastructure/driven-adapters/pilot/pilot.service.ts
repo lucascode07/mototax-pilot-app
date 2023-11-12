@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Pilot } from '../../../domain/pilot/models/pilot.model';
+import { Pilot, PilotModel } from '../../../domain/pilot/models/pilot.model';
 import { PilotGateway } from '../../../domain/pilot/gateway/pilot.gateway';
 import { Observable, catchError, delay, of, switchMap, throwError } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -14,14 +14,24 @@ import {
 export class PilotService implements PilotGateway {
   constructor(private _http: HttpClient) {}
 
-  public login(identifier: string, password: string): Observable<Pilot | null> {
+  public login(identifier: string, password: string): Observable<PilotModel | null> {
     return this._http
       .get<LoginResponse>(
         `${environment.MOTOTAX_API_URL}/api/pilots?filters[password]=${password}&filters[celular]=${identifier}&populate=*`
       )
       .pipe(
         delay(1000),
-        switchMap((res) => of(res.data[0]?.attributes ?? null)),
+        switchMap((res) => {
+          if (res.data[0]?.attributes) {
+            const userPilot: PilotModel = {
+              id: res.data[0]?.id,
+              ...res.data[0].attributes,
+            };
+            return of(userPilot);
+          } else {
+            return of(null);
+          }
+        }),
         catchError((err) => throwError(() => err))
       );
   }

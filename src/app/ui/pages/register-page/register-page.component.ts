@@ -68,11 +68,11 @@ export class RegisterPageComponent implements OnDestroy {
       this._pilotUseCase
         .login(pilot.celular, pilot.password)
         .subscribe((res) => {
-          localStorage.setItem('user-pilot', JSON.stringify(res));
+          sessionStorage.setItem('user-pilot', JSON.stringify(res));
           this.redirectTimeout = window.setTimeout(() => {
             this.showLoaderSpinner = false;
             this._router.navigateByUrl('/');
-          }, 3000);
+          }, 2000);
         });
     });
   }

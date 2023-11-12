@@ -12,8 +12,8 @@
 
     <main *ngIf="isNewAccount; else pilot_status" class="flex-fill">
       <section *ngIf="!showDocsStepper" class="position-relative top-50 translate-middle-y">
-        <h1>¡ Bienvenido a Mototax !</h1>
-        <p class="lead text-secondary-emphasis">
+        <h1 *ngIf="!isRejected">¡ Bienvenido a Mototax !</h1>
+        <p class="lead text-secondary-emphasis" *ngIf="!isRejected; else rejectedMsg">
           Hola <strong class="fw-medium text-light">{{ pilotName }}</strong>, para que tus pasajeros puedan encontrarte
           en
           nuestra plataforma, deberás de subir la
@@ -24,6 +24,22 @@
             Inactivo
           </span>
         </p>
+        <ng-template #rejectedMsg>
+          <h1 class="text-danger-emphasis">Documentación Rechazada</h1>
+          <p class="text-secondary-emphasis">
+            Hola <strong class="fw-medium text-light">{{ pilotName }}</strong>, al parecer los documentos que
+            registraste en nuestra plataforma, no son válidos. Puede deberse a las siguientes razones:
+          </p>
+          <ul class="text-start text-secondary-emphasis">
+            <li>Las imágenes de los documentos que subiste no tienen buena resolución y la información no se percibe.
+            </li>
+            <li>Los documentos sean erróneos o se subieron en los campos incorrectos.</li>
+          </ul>
+          <p class="text-secondary-emphasis">
+            Por favor realiza nuevamente el registro de tus documentos y asegúrate de subir la documentación correcta.
+          </p>
+        </ng-template>
+
         <button class="btn btn-lg btn-warning fw-bold text-shadow-none mt-2" (click)="toggleShowDocsStepper()">
           Subir documentos
         </button>

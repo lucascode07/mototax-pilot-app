@@ -4,7 +4,7 @@ import { CanActivateFn, Router } from '@angular/router';
 export const privateRoutesGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
 
-  if (localStorage.getItem('user-pilot')) {
+  if (sessionStorage.getItem('user-pilot')) {
     return true;
   }
 

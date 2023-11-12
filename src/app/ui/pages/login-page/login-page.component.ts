@@ -43,7 +43,7 @@ export class LoginPageComponent {
           return;
         }
         this.showLoaderSpinner = false;
-        localStorage.setItem('user-pilot', JSON.stringify(res));
+        sessionStorage.setItem('user-pilot', JSON.stringify(res));
         this._router.navigateByUrl('/');
       });
   }

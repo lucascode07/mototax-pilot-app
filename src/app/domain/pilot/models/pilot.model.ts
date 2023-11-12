@@ -14,6 +14,23 @@ export interface Pilot {
   vehiculos: Vehicles;
 }
 
+export interface PilotModel {
+  id: number;
+  nombres: string;
+  apellidos: string;
+  correo: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  celular: string;
+  habilitado: boolean;
+  fechaNacimiento: string;
+  password: string;
+  fotoPerfil: Photo | File;
+  licencia: DriverLicense;
+  vehiculos: Vehicles;
+}
+
 export interface DriverLicense {
   data: DriverLicenseData;
 }

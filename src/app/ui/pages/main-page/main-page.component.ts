@@ -8,7 +8,7 @@ import { Pilot } from '../../../domain/pilot/models/pilot.model';
   styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent {
-  public pilotData: Pilot = JSON.parse(localStorage.getItem('user-pilot')!);
+  public pilotData: Pilot = JSON.parse(sessionStorage.getItem('user-pilot')!);
   public showDocsStepper: boolean = false;
 
   constructor(private _router: Router) {}
@@ -28,8 +28,16 @@ export class MainPageComponent {
     }
   }
 
+  get isRejected(): boolean {
+    if (localStorage.getItem('first-application')) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public logout(): void {
-    localStorage.removeItem('user-pilot');
+    sessionStorage.removeItem('user-pilot');
     this._router.navigateByUrl('/login');
   }
 

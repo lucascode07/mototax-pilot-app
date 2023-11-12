@@ -2,9 +2,9 @@
 
   <mototax-steps [currentStep]="currentStep" />
 
-  <mototax-driver-license-form [ngClass]="{'d-none': currentStep > 1}" [driverLicenseForm]="driverLicenseForm"></mototax-driver-license-form>
-  <mototax-vehicle-form [ngClass]="{'d-none': currentStep < 2 || currentStep > 2}" [vehicleForm]="vehicleForm"></mototax-vehicle-form>
-  <mototax-response-step [ngClass]="{'d-none': currentStep < 3}" [isSuccessResponse]="isSuccessResponse"></mototax-response-step>
+  <mototax-driver-license-form [ngClass]="{'d-none': currentStep > 1}" [driverLicenseForm]="driverLicenseForm" />
+  <mototax-vehicle-form [ngClass]="{'d-none': currentStep < 2 || currentStep > 2}" [vehicleForm]="vehicleForm" />
+  <mototax-response-step [ngClass]="{'d-none': currentStep < 3}" [isSuccessResponse]="isSuccessResponse" />
 
   <button class="btn btn-outline-light mt-4 me-3 fw-bold" (click)="backStep()" *ngIf="currentStep < 3">
     Volver
@@ -12,8 +12,11 @@
   <button class="btn btn-outline-warning mt-4 fw-bold" (click)="nextStep()" *ngIf="currentStep < 2">
     Continuar
   </button>
-  <button class="btn btn-outline-warning mt-4 fw-bold" (click)="uploadDocuments()" *ngIf="currentStep === 2">
-    Registrar
+  <button class="btn btn-outline-warning mt-4 fw-bold btn-reg" (click)="uploadDocuments()" *ngIf="currentStep === 2">
+    <span *ngIf="!isUploadLoading">Registrar</span>
+    <div class="spinner-border spinner-border-sm" role="status" *ngIf="isUploadLoading">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </button>
   <a href="/" class="btn btn-outline-light mt-4 me-3 fw-bold" *ngIf="currentStep === 3">Ir al inicio</a>
 </div>

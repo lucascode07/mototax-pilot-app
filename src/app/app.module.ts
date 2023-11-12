@@ -16,6 +16,8 @@ import { StepsComponent } from './ui/components/steps/steps.component';
 import { DriverLicenseFormComponent } from './ui/components/driver-license-form/driver-license-form.component';
 import { VehicleFormComponent } from './ui/components/vehicle-form/vehicle-form.component';
 import { ResponseStepComponent } from './ui/components/response-step/response-step.component';
+import { DocumentsGateway } from './domain/documents/gateway/documents.gateway';
+import { DocumentsService } from './infrastructure/driven-adapters/documents/documents.service';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,10 @@ import { ResponseStepComponent } from './ui/components/response-step/response-st
     {
       provide: PilotGateway,
       useClass: PilotService,
+    },
+    {
+      provide: DocumentsGateway,
+      useClass: DocumentsService,
     },
   ],
   bootstrap: [AppComponent],
