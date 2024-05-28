@@ -1,3 +1,3 @@
 export const environment = {
-  MOTOTAX_API_URL: 'http://localhost:1337',
+  MOTOTAX_API_URL: 'http://localhost:1338',
 };
