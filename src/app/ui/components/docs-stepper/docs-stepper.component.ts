@@ -24,7 +24,7 @@ export class DocsStepperComponent {
     fechaVencimiento: ['', [Validators.required]],
     fotoFrontal: [null, [Validators.required]],
     fotoPosterior: [null, [Validators.required]],
-    antecedentePolicial: [null, [Validators.required]],
+    // antecedentePolicial: [null, [Validators.required]],
   });
 
   public vehicleForm: FormGroup = this._fb.group({

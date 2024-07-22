@@ -31,7 +31,7 @@
     </div>
   </div>
   <div class="col-12 text-start">
-    <label for="tarjetaCirculacionFrontal" class="form-label">Tarjeta de circulación (Foto frontal)</label>
+    <label for="tarjetaCirculacionFrontal" class="form-label">Dni (Foto frontal)</label>
     <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('tarjetaCirculacionFrontal') }"
       id="tarjetaCirculacionFrontal" (change)="onFileChange($event, 'tarjetaCirculacionFrontal')">
     <small *ngIf="isValidField('tarjetaCirculacionFrontal')" class="invalid-feedback">
@@ -42,7 +42,7 @@
     </div>
   </div>
   <div class="col-12 text-start">
-    <label for="tarjetaCirculacionTrasera" class="form-label">Tarjeta de circulación (Foto trasera)</label>
+    <label for="tarjetaCirculacionTrasera" class="form-label">Dni (Foto trasera)</label>
     <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('tarjetaCirculacionTrasera') }"
       id="tarjetaCirculacionTrasera" (change)="onFileChange($event, 'tarjetaCirculacionTrasera')">
     <small *ngIf="isValidField('tarjetaCirculacionTrasera')" class="invalid-feedback">

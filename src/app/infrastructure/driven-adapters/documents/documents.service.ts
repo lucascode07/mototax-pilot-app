@@ -89,11 +89,11 @@ export class DocumentsService implements DocumentsGateway {
       pilotDocs.fotoPosterior as File,
       (pilotDocs.fotoPosterior as File).name
     );
-    formData.append(
-      'files.antecedentePolicial',
-      pilotDocs.antecedentePolicial as File,
-      (pilotDocs.antecedentePolicial as File).name
-    );
+    // formData.append(
+    //   'files.antecedentePolicial',
+    //   pilotDocs.antecedentePolicial as File,
+    //   (pilotDocs.antecedentePolicial as File).name
+    // );
 
     return formData;
   }

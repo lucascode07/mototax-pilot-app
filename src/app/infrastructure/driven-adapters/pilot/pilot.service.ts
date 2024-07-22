@@ -14,10 +14,17 @@ import {
 export class PilotService implements PilotGateway {
   constructor(private _http: HttpClient) {}
 
-  public login(identifier: string, password: string): Observable<PilotModel | null> {
+  public getPilotFromLS(): Pilot {
+    return JSON.parse(sessionStorage.getItem('user-pilot')!);
+  }
+
+  public login(
+    identifier: string,
+    password: string
+  ): Observable<PilotModel | null> {
     return this._http
       .get<LoginResponse>(
-        `${environment.MOTOTAX_API_URL}/api/pilots?filters[password]=${password}&filters[celular]=${identifier}&populate=*`
+        `${environment.MOTOTAX_API_URL}/api/pilots?filters[password]=${password}&filters[celular]=${identifier}&populate[fotoPerfil][populate]=*&populate[licencia][populate]=*&populate[vehiculos][populate]=*`
       )
       .pipe(
         delay(1000),

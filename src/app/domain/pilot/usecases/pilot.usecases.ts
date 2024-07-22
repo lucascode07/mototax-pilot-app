@@ -8,6 +8,9 @@ import { PilotAttributes } from '../../../ui/shared/utils/interfaces/register-re
 export class PilotUseCasesService implements PilotGateway {
   constructor(private _pilotGateway: PilotGateway) {}
 
+  public getPilotFromLS(): Pilot {
+    return this._pilotGateway.getPilotFromLS();
+  }
   public login(identifier: string, password: string): Observable<Pilot | null> {
     return this._pilotGateway.login(identifier, password);
   }

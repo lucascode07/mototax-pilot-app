@@ -12,7 +12,7 @@ export class DriverLicenseFormComponent {
 
   public frontPhotoPreview: string = 'assets/images/image-placeholder.webp';
   public backPhotoPreview: string = 'assets/images/image-placeholder.webp';
-  public policeRecordPreview: string = 'assets/images/image-placeholder.webp';
+  // public policeRecordPreview: string = 'assets/images/image-placeholder.webp';
 
   constructor(private _formServices: FormsValidatorService) {}
 
@@ -29,9 +29,9 @@ export class DriverLicenseFormComponent {
         case 'fotoPosterior':
           this.backPhotoPreview = reader.result as string;
           break;
-        case 'antecedentePolicial':
-          this.policeRecordPreview = reader.result as string;
-          break;
+        // case 'antecedentePolicial':
+        //   this.policeRecordPreview = reader.result as string;
+        //   break;
       }
     };
     reader.readAsDataURL(file);

@@ -12,8 +12,8 @@
 
     <main *ngIf="isNewAccount; else pilot_status" class="flex-fill">
       <section *ngIf="!showDocsStepper" class="position-relative top-50 translate-middle-y">
-        <h1 *ngIf="!isRejected">¡ Bienvenido a Mototax !</h1>
-        <p class="lead text-secondary-emphasis" *ngIf="!isRejected; else rejectedMsg">
+        <h1 *ngIf="isRejected">¡ Bienvenido a Mototax !</h1>
+        <p class="lead text-secondary-emphasis" *ngIf="isRejected; else rejectedMsg">
           Hola <strong class="fw-medium text-light">{{ pilotName }}</strong>, para que tus pasajeros puedan encontrarte
           en
           nuestra plataforma, deberás de subir la

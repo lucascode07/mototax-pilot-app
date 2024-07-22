@@ -46,6 +46,8 @@ export interface DriverLicenseAttributes {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  fotoFrontal?: Photo | File;
+  fotoPosterior?: Photo | File;
 }
 
 export interface Photo {
@@ -107,6 +109,10 @@ export interface VehiclesDatum {
 export interface VehiclesAttributes {
   placa: string;
   anioFabricacion: string;
+  foto?: Photo | File;
+  soat?: Photo | File;
+  tarjetaCirculacionFrontal?: Photo | File;
+  tarjetaCirculacionTrasera?: Photo | File;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

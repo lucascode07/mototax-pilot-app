@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Pilot } from '../../../domain/pilot/models/pilot.model';
+import { PilotModel } from '../../../domain/pilot/models/pilot.model';
 
 @Component({
   selector: 'app-main-page',
@@ -8,7 +8,9 @@ import { Pilot } from '../../../domain/pilot/models/pilot.model';
   styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent {
-  public pilotData: Pilot = JSON.parse(sessionStorage.getItem('user-pilot')!);
+  public pilotData: PilotModel = JSON.parse(
+    sessionStorage.getItem('user-pilot')!
+  );
   public showDocsStepper: boolean = false;
 
   constructor(private _router: Router) {}
