@@ -76,6 +76,35 @@
           </div>
         </div>
 
+        <div class="col-sm-6">
+          <label for="dni-photo-front" class="form-label">Foto frontal DNI</label>
+          <div class="img-thumbnail mb-3">
+            <img [src]="photoDniFrontPreview" alt="previsualizar la foto de perfil" class="img-fluid rounded">
+          </div>
+          <div class="card p-2">
+            <input type="file" accept="image/*" id="dni-photo-front" class="form-control" (change)="onFileChange($event, 'fotoDniFrontal')" />
+          </div>
+          <small *ngIf="isValidField('fotoDniFrontal')" class="text-danger-emphasis">
+            {{ getFieldError("fotoDniFrontal") }}
+          </small>
+        </div>
+
+        <div class="col-sm-6">
+          <label for="dni-photo-back" class="form-label">Foto trasera DNI</label>
+          <div class="img-thumbnail mb-3">
+            <img [src]="photoDniBackPreview" alt="previsualizar la foto de perfil" class="img-fluid rounded">
+          </div>
+          <div class="card p-2">
+            <input type="file" accept="image/*" id="dni-photo-back" class="form-control" (change)="onFileChange($event, 'fotoDniTrasera')" />
+          </div>
+          <small *ngIf="isValidField('fotoDniTrasera')" class="text-danger-emphasis">
+            {{ getFieldError("fotoDniTrasera") }}
+          </small>
+          <small *ngIf="isValidField('apellidos')" class="invalid-feedback">
+            {{ getFieldError("apellidos") }}
+          </small>
+        </div>
+
         <hr class="my-4">
 
         <h4 class="text-warning mt-0">Contraseña</h4>
@@ -107,7 +136,7 @@
 
       <button class="w-100 btn btn-warning btn-lg mt-4" type="submit">
         <span *ngIf="!showLoaderSpinner">Registrarme</span>
-        <div class="spinner-border spinner-border-sm" role="status" *ngIf="showLoaderSpinner">
+        <div class="spinner-border spinner-border-sm" *ngIf="showLoaderSpinner">
           <span class="visually-hidden">Loading...</span>
         </div>
       </button>

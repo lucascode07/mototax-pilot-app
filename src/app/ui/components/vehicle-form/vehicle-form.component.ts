@@ -11,8 +11,6 @@ export class VehicleFormComponent {
   @Input() public vehicleForm!: FormGroup;
 
   public photoPreview: string = 'assets/images/image-placeholder.webp';
-  public circCardFrontPreview: string = 'assets/images/image-placeholder.webp';
-  public circCardBackPreview: string = 'assets/images/image-placeholder.webp';
   public soatPreview: string = 'assets/images/image-placeholder.webp';
 
   constructor(private _formServices: FormsValidatorService) {}
@@ -34,12 +32,6 @@ export class VehicleFormComponent {
       switch (field) {
         case 'foto':
           this.photoPreview = reader.result as string;
-          break;
-        case 'tarjetaCirculacionFrontal':
-          this.circCardFrontPreview = reader.result as string;
-          break;
-        case 'tarjetaCirculacionTrasera':
-          this.circCardBackPreview = reader.result as string;
           break;
         case 'soat':
           this.soatPreview = reader.result as string;

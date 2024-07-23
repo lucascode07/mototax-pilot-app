@@ -31,8 +31,8 @@ export class DocsStepperComponent {
     placa: ['', [Validators.required]],
     anioFabricacion: ['', [Validators.required, Validators.pattern(/^\d+$/)]],
     foto: [null, [Validators.required]],
-    tarjetaCirculacionFrontal: [null, [Validators.required]],
-    tarjetaCirculacionTrasera: [null, [Validators.required]],
+    // tarjetaCirculacionFrontal: [null, [Validators.required]],
+    // tarjetaCirculacionTrasera: [null, [Validators.required]],
     soat: [null, [Validators.required]],
   });
 

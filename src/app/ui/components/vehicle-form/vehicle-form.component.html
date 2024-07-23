@@ -31,28 +31,6 @@
     </div>
   </div>
   <div class="col-12 text-start">
-    <label for="tarjetaCirculacionFrontal" class="form-label">Dni (Foto frontal)</label>
-    <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('tarjetaCirculacionFrontal') }"
-      id="tarjetaCirculacionFrontal" (change)="onFileChange($event, 'tarjetaCirculacionFrontal')">
-    <small *ngIf="isValidField('tarjetaCirculacionFrontal')" class="invalid-feedback">
-      {{ getFieldError("tarjetaCirculacionFrontal") }}
-    </small>
-    <div class="img-thumbnail mx-auto mt-3">
-      <img [src]="circCardFrontPreview" alt="previsualizar foto de frente" class="img-fluid rounded object-fit-cover">
-    </div>
-  </div>
-  <div class="col-12 text-start">
-    <label for="tarjetaCirculacionTrasera" class="form-label">Dni (Foto trasera)</label>
-    <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('tarjetaCirculacionTrasera') }"
-      id="tarjetaCirculacionTrasera" (change)="onFileChange($event, 'tarjetaCirculacionTrasera')">
-    <small *ngIf="isValidField('tarjetaCirculacionTrasera')" class="invalid-feedback">
-      {{ getFieldError("tarjetaCirculacionTrasera") }}
-    </small>
-    <div class="img-thumbnail mx-auto mt-3">
-      <img [src]="circCardBackPreview" alt="previsualizar foto de frente" class="img-fluid rounded object-fit-cover">
-    </div>
-  </div>
-  <div class="col-12 text-start">
     <label for="soat" class="form-label">Foto de SOAT</label>
     <input type="file" class="form-control" [ngClass]="{ 'is-invalid': isValidField('soat') }" id="soat"
       (change)="onFileChange($event, 'soat')">

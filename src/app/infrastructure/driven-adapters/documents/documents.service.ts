@@ -57,16 +57,16 @@ export class DocumentsService implements DocumentsGateway {
       pilotDocs.foto as File,
       (pilotDocs.foto as File).name
     );
-    formData.append(
-      'files.tarjetaCirculacionFrontal',
-      pilotDocs.tarjetaCirculacionFrontal as File,
-      (pilotDocs.tarjetaCirculacionFrontal as File).name
-    );
-    formData.append(
-      'files.tarjetaCirculacionTrasera',
-      pilotDocs.tarjetaCirculacionTrasera as File,
-      (pilotDocs.tarjetaCirculacionTrasera as File).name
-    );
+    // formData.append(
+    //   'files.tarjetaCirculacionFrontal',
+    //   pilotDocs.tarjetaCirculacionFrontal as File,
+    //   (pilotDocs.tarjetaCirculacionFrontal as File).name
+    // );
+    // formData.append(
+    //   'files.tarjetaCirculacionTrasera',
+    //   pilotDocs.tarjetaCirculacionTrasera as File,
+    //   (pilotDocs.tarjetaCirculacionTrasera as File).name
+    // );
     formData.append(
       'files.soat',
       pilotDocs.soat as File,

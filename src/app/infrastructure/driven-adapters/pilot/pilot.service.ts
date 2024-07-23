@@ -51,6 +51,16 @@ export class PilotService implements PilotGateway {
       pilot.fotoPerfil as File,
       (pilot.fotoPerfil as File).name
     );
+    formData.append(
+      'files.fotoDniFrontal',
+      pilot.fotoDniFrontal as File,
+      (pilot.fotoDniFrontal as File).name
+    );
+    formData.append(
+      'files.fotoDniTrasera',
+      pilot.fotoDniTrasera as File,
+      (pilot.fotoDniTrasera as File).name
+    );
 
     return this._http
       .post<RegisterResponse>(

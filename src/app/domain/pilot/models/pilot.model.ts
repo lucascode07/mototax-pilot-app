@@ -10,6 +10,8 @@ export interface Pilot {
   fechaNacimiento: string;
   password: string;
   fotoPerfil: Photo | File;
+  fotoDniFrontal: Photo | File;
+  fotoDniTrasera: Photo | File;
   licencia: DriverLicense;
   vehiculos: Vehicles;
 }
@@ -27,6 +29,8 @@ export interface PilotModel {
   fechaNacimiento: string;
   password: string;
   fotoPerfil: Photo | File;
+  fotoDniFrontal: Photo | File;
+  fotoDniTrasera: Photo | File;
   licencia: DriverLicense;
   vehiculos: Vehicles;
 }
@@ -111,8 +115,8 @@ export interface VehiclesAttributes {
   anioFabricacion: string;
   foto?: Photo | File;
   soat?: Photo | File;
-  tarjetaCirculacionFrontal?: Photo | File;
-  tarjetaCirculacionTrasera?: Photo | File;
+  // tarjetaCirculacionFrontal?: Photo | File;
+  // tarjetaCirculacionTrasera?: Photo | File;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

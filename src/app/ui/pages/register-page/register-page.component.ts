@@ -30,6 +30,8 @@ export class RegisterPageComponent implements OnDestroy {
         ],
       ],
       fotoPerfil: [null, Validators.required],
+      fotoDniFrontal: [null, Validators.required],
+      fotoDniTrasera: [null, Validators.required],
       password: ['', [Validators.required]],
       passwordConfirm: ['', [Validators.required]],
     },
@@ -44,6 +46,10 @@ export class RegisterPageComponent implements OnDestroy {
   );
 
   public photoPreview: string = 'assets/images/photo-placeholder.webp';
+
+  public photoDniFrontPreview: string = 'assets/images/image-placeholder.webp';
+  public photoDniBackPreview: string = 'assets/images/image-placeholder.webp';
+
   public showLoaderSpinner: boolean = false;
   public showAlert: boolean = false;
   public redirectTimeout?: number;
@@ -83,7 +89,17 @@ export class RegisterPageComponent implements OnDestroy {
     this.registerForm.get(field)?.updateValueAndValidity();
     const reader = new FileReader();
     reader.onload = () => {
-      this.photoPreview = reader.result as string;
+      switch (field) {
+        case 'fotoPerfil':
+          this.photoPreview = reader.result as string;
+          break;
+        case 'fotoDniFrontal':
+          this.photoDniFrontPreview = reader.result as string;
+          break;
+        case 'fotoDniTrasera':
+          this.photoDniBackPreview = reader.result as string;
+          break;
+      }
     };
     reader.readAsDataURL(file);
   }

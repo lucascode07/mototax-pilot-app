@@ -45,13 +45,13 @@ export class PilotStatusComponent {
     return this.pilotData.vehiculos.data[0].attributes.soat as Photo;
   }
 
-  get vehicleCirculationFront(): Photo {
-    return this.pilotData.vehiculos.data[0].attributes
-      .tarjetaCirculacionFrontal as Photo;
-  }
+  // get vehicleCirculationFront(): Photo {
+  //   return this.pilotData.vehiculos.data[0].attributes
+  //     .tarjetaCirculacionFrontal as Photo;
+  // }
 
-  get vehicleCirculationBack(): Photo {
-    return this.pilotData.vehiculos.data[0].attributes
-      .tarjetaCirculacionTrasera as Photo;
-  }
+  // get vehicleCirculationBack(): Photo {
+  //   return this.pilotData.vehiculos.data[0].attributes
+  //     .tarjetaCirculacionTrasera as Photo;
+  // }
 }
